@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+httpx
+python-dotenv
+langsmith>=0.1.133
+
+

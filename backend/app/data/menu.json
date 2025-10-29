@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Margherita",
+    "price": 10,
+    "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1738",
+    "description": "Classic tomato, mozzarella, and basil."
+  },
+  {
+    "id": 2,
+    "name": "Pepperoni",
+    "price": 12,
+    "image": "https://images.unsplash.com/photo-1692737580547-b45bb4a02356?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1215",
+    "description": "Spicy pepperoni with stretchy mozzarella."
+  },
+  {
+    "id": 3,
+    "name": "Veggie",
+    "price": 11,
+    "image": "https://images.unsplash.com/photo-1617470703128-26a0fc9af10f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=3272",
+    "description": "Peppers, olives, mushrooms, onions."
+  },
+  {
+    "id": 4,
+    "name": "BBQ Chicken",
+    "price": 13,
+    "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=962",
+    "description": "BBQ sauce, chicken, red onion, cilantro."
+  }
+]

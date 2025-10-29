@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #fcfcfd;
+  --color-ink: #0f172a;
+  --color-user: #c62828; /* listening pulse */
+  --color-agent: #b8860b; /* speaking pulse */
+}

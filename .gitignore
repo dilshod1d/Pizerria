@@ -1,0 +1,59 @@
+# ========= OS / Editors (repo-wide)
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# ========= Env & secrets (anywhere)
+**/.env
+**/.env.*.local
+!**/.env.example
+
+# ========= Logs (anywhere)
+**/logs/
+**/*.log
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/pnpm-debug.log*
+**/lerna-debug.log*
+
+# =======================
+# Frontend: Vite + React + TS
+# =======================
+/frontend/node_modules/
+/frontend/dist/          # Vite build output
+/frontend/.vite/         # Vite cache
+/frontend/.eslintcache
+/frontend/coverage/
+# TS incremental build info
+/frontend/*.tsbuildinfo
+
+# Optional tool caches (safe to ignore if used)
+/frontend/.turbo/
+/frontend/.parcel-cache/
+/frontend/.cache/
+
+
+# =======================
+# Backend: Python
+# =======================
+/backend/__pycache__/
+/backend/**/*.py[cod]
+/backend/*$py.class
+/backend/.pytest_cache/
+/backend/.mypy_cache/
+/backend/.ruff_cache/
+/backend/.coverage
+/backend/coverage/
+/backend/htmlcov/
+/backend/build/
+/backend/dist/
+/backend/*.egg-info/
+/backend/.venv/
+/backend/venv/
+/backend/env/
+/backend/.python-version
+
+
