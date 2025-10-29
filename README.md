@@ -59,7 +59,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 # 3) Create .env (example below)
-cp .env.example .env  # or create manually
+cp .env  # or create manually
 
 # 4) Run server
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
@@ -125,7 +125,7 @@ PY
 
 **Requirements**
 
-- Node.js 18+
+- Node.js 20.19+ or 22.12+
 - npm
 
 **Setup**

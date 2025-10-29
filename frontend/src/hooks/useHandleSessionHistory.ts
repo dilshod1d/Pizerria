@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useTranscript } from "../context/TranscriptContext";
-import type { Menu, Order } from "../types/types";
+import type { Menu, Order } from "../types";
 import { v4 as uuidv4 } from "uuid";
 
 export function useHandleSessionHistory() {

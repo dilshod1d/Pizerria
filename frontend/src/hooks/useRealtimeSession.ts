@@ -4,7 +4,7 @@ import {
   RealtimeAgent,
   OpenAIRealtimeWebRTC,
 } from "@openai/agents/realtime";
-import type { Mode, SessionStatus } from "../types/types";
+import type { Mode, SessionStatus } from "../types";
 import { useHandleSessionHistory } from "./useHandleSessionHistory";
 import { pizzaAgent } from "../agent/pizzaAgent";
 
@@ -160,7 +160,6 @@ export function useRealtimeSession(callbacks: RealtimeSessionCallbacks = {}) {
       s.on("error", (err: any) => console.log(err));
 
       // history only
-      s.on("agent_tool_start", historyHandlers.handleAgentToolStart);
       s.on("agent_tool_end", historyHandlers.handleAgentToolEnd);
       s.on("history_updated", historyHandlers.handleHistoryUpdated);
       s.on("history_added", historyHandlers.handleHistoryAdded);
@@ -225,38 +224,25 @@ export function useRealtimeSession(callbacks: RealtimeSessionCallbacks = {}) {
   }, []);
 
   const connect = useCallback(
-    async ({
-      getEphemeralKey,
-      audioElement,
-      extraContext,
-      outputGuardrails,
-    }: ConnectOptions) => {
+    async ({ getEphemeralKey, audioElement }: ConnectOptions) => {
       if (sessionRef.current) return; // already connected
       updateStatus("CONNECTING");
 
       const ek = await getEphemeralKey();
-
       const transport = new OpenAIRealtimeWebRTC({ audioElement });
       const session = new RealtimeSession(pizzaAgent, {
         transport,
         config: {
           inputAudioTranscription: { model: "gpt-4o-mini-transcribe" },
         },
-        // outputGuardrails: outputGuardrails ?? [],
-        // context: extraContext ?? {},
       });
+      console.log("session", session);
 
-      // bind listeners NOW (don’t wait for a React effect)
       bindSessionEvents(session);
-      // const cleanupAudio = bindAudioElement(audioElement);
-      // inside connect()
+
       const cleanupAudio = attachPlaybackMeter(audioElement);
       // @ts-expect-error internal
       session.__cleanupAudio = cleanupAudio;
-
-      // store for cleanup
-      // @ts-expect-error internal
-      // session.__cleanupAudio = cleanupAudio;
 
       await session.connect({ apiKey: ek });
 
@@ -308,33 +294,14 @@ export function useRealtimeSession(callbacks: RealtimeSessionCallbacks = {}) {
     sessionRef.current?.mute(m);
   }, []);
 
-  const pushToTalkStart = useCallback(() => {
-    if (!sessionRef.current) return;
-    setModeSafe("listening");
-    sessionRef.current.transport.sendEvent({
-      type: "input_audio_buffer.clear",
-    } as any);
-  }, []);
-
-  const pushToTalkStop = useCallback(() => {
-    if (!sessionRef.current) return;
-    sessionRef.current.transport.sendEvent({
-      type: "input_audio_buffer.commit",
-    } as any);
-    sessionRef.current.transport.sendEvent({ type: "response.create" } as any);
-    // speaking transition handled by audio/transport
-  }, []);
-
   return {
     status,
-    mode, // <- bind this to <SiriPulseOrb mode={mode} />
+    mode,
     connect,
     disconnect,
     sendUserText,
     sendEvent,
     mute,
-    pushToTalkStart,
-    pushToTalkStop,
     interrupt,
   } as const;
 }

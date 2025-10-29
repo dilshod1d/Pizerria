@@ -1,4 +1,4 @@
-import type { Order, OrderStatus } from "../types/types";
+import type { Order, OrderStatus } from "../types";
 import Glass from "./Glass";
 
 function statusClasses(status: OrderStatus) {

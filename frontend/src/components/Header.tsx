@@ -1,5 +1,5 @@
 import { FiWifi, FiWifiOff } from "react-icons/fi";
-import type { SessionStatus } from "../types/types";
+import type { SessionStatus } from "../types";
 import Slice from "./Slice";
 
 function Header({ sessionStatus }: { sessionStatus: SessionStatus }) {

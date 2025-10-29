@@ -5,7 +5,7 @@ import {
   type FC,
   type PropsWithChildren,
 } from "react";
-import type { TranscriptItem, TranscriptItemType } from "../types/types";
+import type { TranscriptItem, TranscriptItemType } from "../types";
 
 type TranscriptContextValue = {
   transcriptItems: TranscriptItem[];

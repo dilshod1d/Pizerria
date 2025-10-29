@@ -1,4 +1,4 @@
-import type { MenuItem } from "../types/types";
+import type { MenuItem } from "../types";
 import Glass from "./Glass";
 
 function ProductCard({ menuItem }: { menuItem: MenuItem }) {

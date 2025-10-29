@@ -1,10 +1,6 @@
 import axios from "axios";
-import type {
-  Order,
-  OrderCreateRequest,
-  OrderCreateResponse,
-} from "../types/types";
-import type { Menu } from "../types/types";
+import type { Order, OrderCreateRequest, OrderCreateResponse } from "../types";
+import type { Menu } from "../types";
 
 export const API_URL = import.meta.env.VITE_API_URL;
 
@@ -26,7 +22,6 @@ export async function getOrder(orderId: number): Promise<Order> {
   const { data } = await api.get<Order>(`/orders/${orderId}`);
   return data;
 }
-
 
 export async function getOrderStatus(orderId: number) {
   const res = await api.get<Order>(`${API_URL}/orders/${orderId}`);

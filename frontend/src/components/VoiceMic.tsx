@@ -1,5 +1,5 @@
 import { FiMic } from "react-icons/fi";
-import type { Mode } from "../types/types";
+import type { Mode } from "../types";
 
 function VoiceMic({ mode = "idle" as Mode }) {
   const isL = mode === "listening";

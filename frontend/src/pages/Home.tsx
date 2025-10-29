@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { BsKeyboard } from "react-icons/bs";
 import { FiX } from "react-icons/fi";
-import type { MenuItem, Order, SessionStatus } from "../types/types";
+import type { MenuItem, Order, SessionStatus } from "../types";
 import { useRealtimeSession } from "../hooks/useRealtimeSession";
 import { useTranscript } from "../context/TranscriptContext";
 import { pizzaAgent } from "../agent/pizzaAgent";
