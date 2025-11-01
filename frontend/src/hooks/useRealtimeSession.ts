@@ -236,7 +236,6 @@ export function useRealtimeSession(callbacks: RealtimeSessionCallbacks = {}) {
           inputAudioTranscription: { model: "gpt-4o-mini-transcribe" },
         },
       });
-      console.log("session", session);
 
       bindSessionEvents(session);
 
